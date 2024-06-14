@@ -131,7 +131,7 @@ int main(){ //Básicamente o corpo do menu que será apresentado ao usuário.
 		printf("### Cartório da Empresa XXX ###\n\n"); //Começo do menu.
 		printf("Selecione uma das seguintes opções:\n\n");
 		printf("\t1 - Registrar novo Usuário.\n");
-		printf("\t2 - Consultar jogadores Usuário.\n");
+		printf("\t2 - Consultar Usuário.\n");
 		printf("\t3 - Excluir Usuário.\n\n"); //Fim do menu.
 		printf("\t4 - Sair do sistema.\n\n\n");
 		printf("Opção: ");
@@ -155,7 +155,7 @@ int main(){ //Básicamente o corpo do menu que será apresentado ao usuário.
 			
 			case 4:
 				printf("Até logo!\n");
-				return 0;
+				return 0; //Comando que força o encerramento do programa.
 			break;
 			
 			default:
