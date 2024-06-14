@@ -13,7 +13,7 @@ int registro(){ //Função responsável por gerar um arquivo de cadastro de usuário
 	char cargo[40];
 	//Fim da criação de string.
 	
-	printf("Digite o CPF do jogador a ser cadastrado: "); //Coleta de informações para a criação do arquivo.
+	printf("Digite o CPF do Usuário a ser cadastrado: "); //Coleta de informações para a criação do arquivo.
 	scanf("%s", cpf);
 	
 	strcpy(arquivo, cpf); //responsavel por copiar os valores das string.
@@ -27,7 +27,7 @@ int registro(){ //Função responsável por gerar um arquivo de cadastro de usuário
 	fprintf(file,",");
 	fclose(file);
 	
-	printf("Digite o nome do jogador a ser cadastrado: ");
+	printf("Digite o nome do Usuário a ser cadastrado: ");
 	scanf("%s", nome);
 	
 	file = fopen(arquivo, "a");
@@ -38,7 +38,7 @@ int registro(){ //Função responsável por gerar um arquivo de cadastro de usuário
 	fprintf(file,",");
 	fclose(file);
 	
-	printf("Digite o sobrenome do jogador a ser cadastrado: ");
+	printf("Digite o sobrenome do Usuário a ser cadastrado: ");
 	scanf("%s", sobrenome);
 	
 	file = fopen(arquivo, "a");
@@ -49,7 +49,7 @@ int registro(){ //Função responsável por gerar um arquivo de cadastro de usuário
 	fprintf(file,",");
 	fclose(file);
 	
-	printf("Digite o cargo do jogador a ser cadastrado: ");
+	printf("Digite o cargo do Usuário a ser cadastrado: ");
 	scanf("%s", cargo);
 	
 	file = fopen(arquivo, "a");
@@ -73,7 +73,7 @@ int consulta(){ //Função responsável por consultar um arquivo já existente no si
 	file = fopen(cpf,"r");
 	
 	if(file == NULL){ //Se o arquivo desejado não existir/não for encontrado, mostre essa mensagem.
-		printf("Meu cria, esse arquivo não existe.\n");
+		printf("Esse arquivo não existe.\n");
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL){ //Senão, analise o documento encontrado e mostre as informações contidas para o usuário.
@@ -90,7 +90,7 @@ int deletar(){ //Função responsável pela exclusão de um arquivo já existente no 
 	
 	char cpf[40];
 	
-	printf("Digite o CPF do jogador a ser deletado: ");
+	printf("Digite o CPF do Usuário a ser deletado: ");
 	scanf("%s", cpf);
 	
 	FILE *file;
@@ -98,12 +98,12 @@ int deletar(){ //Função responsável pela exclusão de um arquivo já existente no 
 	fclose(file);
 	
 	if(file == NULL){
-		printf("Esse jogador não foi encontrado no sistema.\n");
+		printf("Esse Usuário não foi encontrado no sistema.\n");
 		system("pause");
 	}
 	else{
 		remove(cpf); //Comando para deletar o arquivo.
-		printf("Jogador deletado com sucesso.");
+		printf("Usuário deletado com sucesso.\n\n");
 		system("pause");
 	}
 	
@@ -128,11 +128,12 @@ int main(){ //Básicamente o corpo do menu que será apresentado ao usuário.
 		setlocale(LC_ALL, "Portuguese"); //Definindo linguagem.
 		//O setlocale varia dependendo do sistema operacional utilizado.
 	
-		printf("### Cartório do Steve do Minecraftkkkj ###\n\n"); //Começo do menu.
-		printf("Escolha uma das seguintes opções:\n\n");
-		printf("\t1 - Registrar novo jogador.\n");
-		printf("\t2 - Consultar jogadores registrados.\n");
-		printf("\t3 - Excluir jogador.\n\n\n"); //Fim do menu.
+		printf("### Cartório da Empresa XXX ###\n\n"); //Começo do menu.
+		printf("Selecione uma das seguintes opções:\n\n");
+		printf("\t1 - Registrar novo Usuário.\n");
+		printf("\t2 - Consultar jogadores Usuário.\n");
+		printf("\t3 - Excluir Usuário.\n\n"); //Fim do menu.
+		printf("\t4 - Sair do sistema.\n\n\n");
 		printf("Opção: ");
 	
 		scanf("%d", &opcao); //Scan é um comando para o usuário armazenar informações.
@@ -150,6 +151,11 @@ int main(){ //Básicamente o corpo do menu que será apresentado ao usuário.
 			
 			case 3:
 				deletar(); //chamada de funções: deletar.
+			break;
+			
+			case 4:
+				printf("Até logo!\n");
+				return 0;
 			break;
 			
 			default:
