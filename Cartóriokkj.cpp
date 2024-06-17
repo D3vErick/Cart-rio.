@@ -120,48 +120,63 @@ int main(){ //Básicamente o corpo do menu que será apresentado ao usuário.
 	int opcao=0; //Definindo variáveis.
 	//O símbolo "=" significa validação, essa variável vale 0.
 	int repetir=1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for(repetir=1;repetir=1;){	
+	printf("### Cartório da Empresa XXX ###\n\n");
+	printf("Login de administrador!\n\nDigite sua senha: ");
+	scanf("%s", senhadigitada);
 	
-		system("cls"); //Comando responsável por limpar a tela após uma nova seleção, o fim da poluição visual.
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0){
 		
-		setlocale(LC_ALL, "Portuguese"); //Definindo linguagem.
-		//O setlocale varia dependendo do sistema operacional utilizado.
+		system("cls");
+		for(repetir=1;repetir=1;){	
 	
-		printf("### Cartório da Empresa XXX ###\n\n"); //Começo do menu.
-		printf("Selecione uma das seguintes opções:\n\n");
-		printf("\t1 - Registrar novo Usuário.\n");
-		printf("\t2 - Consultar Usuário.\n");
-		printf("\t3 - Excluir Usuário.\n\n"); //Fim do menu.
-		printf("\t4 - Sair do sistema.\n\n\n");
-		printf("Opção: ");
-	
-		scanf("%d", &opcao); //Scan é um comando para o usuário armazenar informações.
-	
-		system("cls"); //System é um comando para falar com o sistema operacional e o CLS é para limpar a tela tornando agradavél para o usuário, esse comando é o mesmo para todos os sistemas operacionais.
+			system("cls"); //Comando responsável por limpar a tela após uma nova seleção, o fim da poluição visual.
 		
-		switch(opcao){ //Ínicio das opções.
-			case 1:
-				registro(); //chamada de funções: registro.
-			break;
+			setlocale(LC_ALL, "Portuguese"); //Definindo linguagem.
+			//O setlocale varia dependendo do sistema operacional utilizado.
+	
+			printf("### Cartório da Empresa XXX ###\n\n"); //Começo do menu.
+			printf("Selecione uma das seguintes opções:\n\n");
+			printf("\t1 - Registrar novo Usuário.\n");
+			printf("\t2 - Consultar Usuário.\n");
+			printf("\t3 - Excluir Usuário.\n\n"); //Fim do menu.
+			printf("\t4 - Sair do sistema.\n\n\n");
+			printf("Opção: ");
+	
+			scanf("%d", &opcao); //Scan é um comando para o usuário armazenar informações.
+	
+			system("cls"); //System é um comando para falar com o sistema operacional e o CLS é para limpar a tela tornando agradavél para o usuário, esse comando é o mesmo para todos os sistemas operacionais.
+		
+			switch(opcao){ //Ínicio das opções.
+				case 1:
+					registro(); //chamada de funções: registro.
+				break;
 			
-			case 2:
-				consulta(); //chamada de funções: consulta.
-			break;
+				case 2:
+					consulta(); //chamada de funções: consulta.
+				break;
 			
-			case 3:
-				deletar(); //chamada de funções: deletar.
-			break;
-			
-			case 4:
-				printf("Até logo!\n");
-				return 0; //Comando que força o encerramento do programa.
-			break;
-			
-			default:
-				padrao(); //chamada de funções: nenhuma das anteriores.
-			break;
-		} //Fim das opções.
+				case 3:
+					deletar(); //chamada de funções: deletar.
+				break;
+				
+				case 4:
+					printf("Até logo!\n");
+					return 0; //Comando que força o encerramento do programa.
+				break;
+				
+				default:
+					padrao(); //chamada de funções: nenhuma das anteriores.
+				break;
+			} //Fim das opções.
+		}
 	}
+	else
+		printf("Senha incorreta!");
 }
+
 
