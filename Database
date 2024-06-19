@@ -1,0 +1,48 @@
+create table usuario(
+	cpf integer,
+  	nome varchar(50),
+    sobrenome varchar(50),
+    cargo varchar(50),
+  	curso_id integer
+);
+
+create table cursos(
+	id integer,
+  	nome_curso varchar(50),
+  	professor varchar(50),
+  	categoria varchar(50)
+);
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('12','Isis','King','Professor','2');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('124','Pedro','Brocaldi','Professor','1');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('123','Joseph','Joestar','Aluno','2');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('125','Mohammed','Avdoll','Aluno','1');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('126','Jean','Pierre Polnareff','Aluno','2');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('127','Noriaki','Kakyoin','Aluno','1');
+
+insert into usuario (cpf,nome,sobrenome,cargo,curso_id)
+values ('128','Jotaro','Kujo','Aluno','2');
+
+insert into cursos (id, nome_curso, professor, categoria)
+values ('1', 'Ti do zero', 'Pedro Brocaldi', 'Programação');
+
+insert into cursos (id, nome_curso, professor, categoria)
+values ('2', 'SQL', 'Isis King', 'Dados');
+
+update usuario
+set curso_id = '1'
+where cpf = '128';
+
+delete from usuario
+where cpf= '126';
